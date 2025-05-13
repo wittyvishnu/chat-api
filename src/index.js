@@ -16,11 +16,16 @@ const PORT = process.env.PORT;
 
 
 app.use(express.json());
-app.use(cookieParser());
-cors({
-  origin: "*", 
+import cors from "cors";
+
+// Dynamically reflect the request origin
+app.use(cors({
+  origin: (origin, callback) => {
+    callback(null, origin); // Reflect origin
+  },
   credentials: true,
-})
+}));
+
 
 
 app.use("/api/auth", authRoutes);
