@@ -16,7 +16,7 @@ const PORT = process.env.PORT;
 
 
 app.use(express.json());
-import cors from "cors";
+
 
 // Dynamically reflect the request origin
 app.use(cors({
